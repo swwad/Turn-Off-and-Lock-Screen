@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">關閉螢幕</string>
+    <string name="app_introduction">請先開啟鎖定螢幕的權限，才可正常使用此 APP，如果需要解除安裝 APP，請先至【設定】→【安全性】→【裝置管理員】內取消本 APP 的權限，再移除此 APP 即可。</string>
+    <string name="device_admin_title">關閉並鎖定螢幕</string>
+    <string name="device_admin_description">此 APP 唯一的功能便是關閉並鎖定螢幕，適合不想按硬體電源鍵的人使用；如果需要解除安裝 APP，請先至【設定】→【安全性】→【裝置管理員】內取消本 APP 的權限，再移除此 APP 即可。</string>
+    <string name="device_admin_remove_msg">已移除本 APP 裝置管理員權限，已可正常解除安裝本 APP。</string>
+
+</resources>
