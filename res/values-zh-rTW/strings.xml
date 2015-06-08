@@ -1,10 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <!-- APP -->
     <string name="app_name">關閉螢幕</string>
     <string name="app_introduction">請先開啟鎖定螢幕的權限，才可正常使用此 APP，如果需要解除安裝 APP，請先至【設定】→【安全性】→【裝置管理員】內取消本 APP 的權限，再移除此 APP 即可。</string>
     <string name="device_admin_title">關閉並鎖定螢幕</string>
     <string name="device_admin_description">此 APP 唯一的功能便是關閉並鎖定螢幕，適合不想按硬體電源鍵的人使用；如果需要解除安裝 APP，請先至【設定】→【安全性】→【裝置管理員】內取消本 APP 的權限，再移除此 APP 即可。</string>
     <string name="device_admin_remove_msg">已移除本 APP 裝置管理員權限，已可正常解除安裝本 APP。</string>
+
+    <!-- Setting -->
+    <string name="action_settings">設定</string>
+    <string name="start_screenoff_popwindow">開啟浮動按鈕</string>
+    <string name="start_screenoff_popwindow_hint">點擊此處可顯示用來鎖定螢幕的浮動按扭</string>
+    <string name="boot_screenoff_popwindow">開機自動啟動浮動按鈕</string>
+    <string name="boot_screenoff_popwindow_hint">捐贈版本功能</string>
+    <string name="screenoff_popwindow_size">浮動按鈕尺寸</string>
+    <string name="screenoff_return_to_home">鎖定螢幕後，返回桌面</string>
+    <string name="screenoff_return_to_home_hint">開啟後，將在下次顯示螢幕時顯示主桌面</string>
+    <string name="support_me">支持本程式</string>
+    <string name="support_me_hint">您的支持可以幫助小弟開發更多新程式，\n支持本程式後，將可啟動所有功能。\n若您已支持過，也請點此直接升級為捐贈版本!</string>
+    <string name="iabhelper_failed">查詢購買資訊失敗，請稍後再試!</string>
+    <string name="iabhelper_fullversion">感謝您的支持，將啟用所有功能。</string>
+
+    <string-array name="option_icon_size_string">
+        <item>小</item>
+        <item>中</item>
+        <item>大</item>
+    </string-array>
+    <string-array name="option_icon_size_value">
+        <item>30</item>
+        <item>50</item>
+        <item>80</item>
+    </string-array>
+
+    <!-- Preference Key -->
+    <string name="key_setting_start_popwindow">key_setting_start_popwindow</string>
+    <string name="key_setting_boot_popwindow">key_setting_boot_popwindow</string>
+    <string name="key_setting_support_me">key_setting_support_me</string>
+    <string name="key_setting_icon_size">key_setting_icon_size</string>
+    <string name="key_setting_return_home">key_setting_return_home</string>
 
 </resources>

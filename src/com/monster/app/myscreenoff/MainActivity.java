@@ -29,10 +29,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
 
-/**
- * Example of a do-nothing admin class. When enabled, it lets you control some
- * of its policy and reports when there is interesting activity.
- */
 public class MainActivity extends Activity {
 	static final int RESULT_ENABLE = 1;
 
@@ -63,7 +59,8 @@ public class MainActivity extends Activity {
 				}
 			}, null, null).show();
 		} else {
-			lockScreenNow();
+			startService(new Intent(getApplicationContext(), IconService.class));
+//			 lockScreenNow();
 		}
 	}
 
