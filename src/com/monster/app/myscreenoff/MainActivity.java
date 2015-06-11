@@ -17,8 +17,6 @@
 package com.monster.app.myscreenoff;
 
 import android.app.Activity;
-import android.app.ActivityManager;
-import android.app.AlertDialog;
 import android.app.admin.DevicePolicyManager;
 import android.content.ComponentName;
 import android.content.Context;
@@ -26,48 +24,42 @@ import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
-import android.widget.Button;
+
+import com.monster.app.util.Utility;
 
 public class MainActivity extends Activity {
-	static final int RESULT_ENABLE = 1;
 
 	DevicePolicyManager mDPM;
-	ActivityManager mAM;
 	ComponentName mDeviceAdminSample;
-
-	Button mEnableButton;
-	Button mDisableButton;
-	Button mForceLockButton;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
 		mDPM = (DevicePolicyManager) getSystemService(Context.DEVICE_POLICY_SERVICE);
-		mAM = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
 		mDeviceAdminSample = new ComponentName(MainActivity.this, DevicdAdminReceiver.class);
 
 		if (!mDPM.isAdminActive(mDeviceAdminSample)) {
-			ShowCustomizeDialog(this, getString(R.string.app_name), getString(R.string.app_introduction), "OK", null, new OnClickListener() {
+			Utility.ShowCustomizeDialog(this, getString(R.string.app_name), getString(R.string.app_introduction), "OK", null, new OnClickListener() {
 				@Override
 				public void onClick(DialogInterface dialog, int which) {
 					Intent intent = new Intent(DevicePolicyManager.ACTION_ADD_DEVICE_ADMIN);
 					intent.putExtra(DevicePolicyManager.EXTRA_DEVICE_ADMIN, mDeviceAdminSample);
 					intent.putExtra(DevicePolicyManager.EXTRA_ADD_EXPLANATION, getString(R.string.device_admin_description));
-					startActivityForResult(intent, RESULT_ENABLE);
+					startActivityForResult(intent, Utility.RESULT_ENABLE);
 				}
 			}, null, null).show();
 		} else {
-			startService(new Intent(getApplicationContext(), IconService.class));
-//			 lockScreenNow();
+			lockScreenNow();
 		}
 	}
 
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		switch (requestCode) {
-		case RESULT_ENABLE:
+		case Utility.RESULT_ENABLE:
 			if (resultCode == Activity.RESULT_OK) {
 				Log.i("DeviceAdminSample", "Admin enabled!");
 				lockScreenNow();
@@ -84,60 +76,10 @@ public class MainActivity extends Activity {
 
 	public void lockScreenNow() {
 		mDPM.lockNow();
-		startActivity(new Intent(Intent.ACTION_MAIN).addCategory(Intent.CATEGORY_HOME));
+		if (PreferenceManager.getDefaultSharedPreferences(this).getBoolean(getString(R.string.key_setting_return_home), true)) {
+			startActivity(new Intent(Intent.ACTION_MAIN).addCategory(Intent.CATEGORY_HOME));
+		}
 		this.finish();
 	}
 
-	// private OnClickListener mDisableListener = new OnClickListener() {
-	// public void onClick(View v) {
-	// mDPM.removeActiveAdmin(mDeviceAdminSample);
-	// updateButtonStates();
-	// }
-	// };
-	//
-	// private OnClickListener mForceLockListener = new OnClickListener() {
-	// public void onClick(View v) {
-	// if (mAM.isUserAMonkey()) {
-	// // Don't trust monkeys to do the right thing!
-	// AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-	// builder.setMessage("You can't lock my screen because you are a monkey!");
-	// builder.setPositiveButton("I admit defeat", null);
-	// builder.show();
-	// return;
-	// }
-	// boolean active = mDPM.isAdminActive(mDeviceAdminSample);
-	// if (active) {
-	// mDPM.lockNow();
-	// }
-	// }
-	// };
-
-	public static AlertDialog ShowCustomizeDialog(Context ctx, String title, String message, String positiveMessage, String negativeMessage, DialogInterface.OnClickListener onPositiveListener,
-			DialogInterface.OnClickListener onNegativeListener, DialogInterface.OnCancelListener onCancelListener) {
-		AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(ctx);
-
-		if (title != null) {
-			dialogBuilder.setTitle(title);
-		}
-
-		if (message != null) {
-			dialogBuilder.setMessage(message);
-		}
-
-		if (onCancelListener != null) {
-			dialogBuilder.setOnCancelListener(onCancelListener);
-			dialogBuilder.setCancelable(true);
-		} else {
-			dialogBuilder.setCancelable(false);
-		}
-
-		if (onPositiveListener != null) {
-			dialogBuilder.setPositiveButton(positiveMessage, onPositiveListener);
-		}
-
-		if (onNegativeListener != null) {
-			dialogBuilder.setNegativeButton(negativeMessage, onNegativeListener);
-		}
-		return dialogBuilder.create();
-	}
 }

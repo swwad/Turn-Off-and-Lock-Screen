@@ -9,11 +9,12 @@
     <string name="device_admin_remove_msg">已移除本 APP 裝置管理員權限，已可正常解除安裝本 APP。</string>
 
     <!-- Setting -->
-    <string name="action_settings">設定</string>
+    <string name="action_settings">關閉設定</string>
     <string name="start_screenoff_popwindow">開啟浮動按鈕</string>
+    <string name="start_screenoff_popwindow_study">浮動按鈕使用說明</string>
     <string name="start_screenoff_popwindow_hint">點擊此處可顯示用來鎖定螢幕的浮動按扭</string>
     <string name="boot_screenoff_popwindow">開機自動啟動浮動按鈕</string>
-    <string name="boot_screenoff_popwindow_hint">捐贈版本功能</string>
+    <string name="boot_screenoff_popwindow_hint">捐贈版本將可啟動所有功能</string>
     <string name="screenoff_popwindow_size">浮動按鈕尺寸</string>
     <string name="screenoff_return_to_home">鎖定螢幕後，返回桌面</string>
     <string name="screenoff_return_to_home_hint">開啟後，將在下次顯示螢幕時顯示主桌面</string>
@@ -21,6 +22,11 @@
     <string name="support_me_hint">您的支持可以幫助小弟開發更多新程式，\n支持本程式後，將可啟動所有功能。\n若您已支持過，也請點此直接升級為捐贈版本!</string>
     <string name="iabhelper_failed">查詢購買資訊失敗，請稍後再試!</string>
     <string name="iabhelper_fullversion">感謝您的支持，將啟用所有功能。</string>
+    <string name="full_version_promote_title">請升級捐贈版本</string>
+    <string name="full_version_promote_hint">升級捐贈版本後將可啟動所有功能，\n如開機自動啟動浮動按鈕，\n通知欄直接啟動浮動按鈕等。</string>
+    <string name="full_version_buy">升級捐贈版本</string>
+    <string name="option_ok">確定</string>
+    <string name="option_cancel">取消</string>
 
     <string-array name="option_icon_size_string">
         <item>小</item>
@@ -28,8 +34,8 @@
         <item>大</item>
     </string-array>
     <string-array name="option_icon_size_value">
-        <item>30</item>
-        <item>50</item>
+        <item>40</item>
+        <item>60</item>
         <item>80</item>
     </string-array>
 
@@ -39,5 +45,7 @@
     <string name="key_setting_support_me">key_setting_support_me</string>
     <string name="key_setting_icon_size">key_setting_icon_size</string>
     <string name="key_setting_return_home">key_setting_return_home</string>
+    <string name="key_setting_popwindow_study">key_setting_popwindow_study</string>
+    <string name="key_setting_full_version">key_setting_full_version</string>
 
 </resources>
