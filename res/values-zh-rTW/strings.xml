@@ -7,12 +7,13 @@
     <string name="device_admin_title">關閉並鎖定螢幕</string>
     <string name="device_admin_description">此 APP 唯一的功能便是關閉並鎖定螢幕，適合不想按硬體電源鍵的人使用；如果需要解除安裝 APP，請先至【設定】→【安全性】→【裝置管理員】內取消本 APP 的權限，再移除此 APP 即可。</string>
     <string name="device_admin_remove_msg">已移除本 APP 裝置管理員權限，已可正常解除安裝本 APP。</string>
-
+	<string name="banner_ad_unit_id">ca-app-pub-2487183748401331/5340398205</string>
+	
     <!-- Setting -->
     <string name="action_settings">關閉設定</string>
     <string name="start_screenoff_popwindow">開啟浮動按鈕</string>
     <string name="start_screenoff_popwindow_study">浮動按鈕使用說明</string>
-    <string name="start_screenoff_popwindow_hint">點擊此處可顯示用來鎖定螢幕的浮動按扭</string>
+    <string name="start_screenoff_popwindow_hint">點此可直接顯示浮動按扭</string>
     <string name="boot_screenoff_popwindow">開機自動啟動浮動按鈕</string>
     <string name="boot_screenoff_popwindow_hint">捐贈版本將可啟動所有功能</string>
     <string name="screenoff_popwindow_size">浮動按鈕尺寸</string>
@@ -25,6 +26,8 @@
     <string name="full_version_promote_title">請升級捐贈版本</string>
     <string name="full_version_promote_hint">升級捐贈版本後將可啟動所有功能，\n如開機自動啟動浮動按鈕，\n通知欄直接啟動浮動按鈕等。</string>
     <string name="full_version_buy">升級捐贈版本</string>
+    <string name="only_full_version">捐贈版本專用功能</string>
+    <string name="only_full_version2">捐贈版本點此可直接顯示浮動按扭</string>
     <string name="option_ok">確定</string>
     <string name="option_cancel">取消</string>
 
@@ -40,6 +43,7 @@
     </string-array>
 
     <!-- Preference Key -->
+    <string name="key_setting_group">key_setting_group"</string>
     <string name="key_setting_start_popwindow">key_setting_start_popwindow</string>
     <string name="key_setting_boot_popwindow">key_setting_boot_popwindow</string>
     <string name="key_setting_support_me">key_setting_support_me</string>

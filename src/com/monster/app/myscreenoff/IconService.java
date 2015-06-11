@@ -29,7 +29,6 @@ public class IconService extends Service {
 
 	final static int SINGLE_CLICK_EVENT = 1001;
 	final static int DOUBLE_CLICK_EVENT = 1002;
-	final static int NOTIFICATION_ID = 7210;
 
 	final static String KEY_POSITION_X = "KEY_POSITION_X";
 	final static String KEY_POSITION_Y = "KEY_POSITION_Y";
@@ -75,7 +74,7 @@ public class IconService extends Service {
 	@Override
 	public void onCreate() {
 		super.onCreate();
-		((NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE)).cancel(NOTIFICATION_ID);
+		((NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE)).cancel(Utility.NOTIFICATION_ID);
 
 		windowManager = (WindowManager) getSystemService(WINDOW_SERVICE);
 
@@ -143,13 +142,22 @@ public class IconService extends Service {
 	}
 
 	public void createNotification() {
-		Intent notificationIntent = new Intent(getApplicationContext(), IconService.class);
-		PendingIntent pendingIntent = PendingIntent.getService(getApplicationContext(), 0, notificationIntent, 0);
+
+		Intent notificationIntent;
+		PendingIntent pendingIntent;
 		Notification notification = new Notification(R.drawable.ic_launcher, getString(R.string.start_screenoff_popwindow_hint), System.currentTimeMillis());
-		notification.setLatestEventInfo(getApplicationContext(), getString(R.string.app_name), getString(R.string.start_screenoff_popwindow_hint), pendingIntent);
+		if (PreferenceManager.getDefaultSharedPreferences(this).getBoolean(getString(R.string.key_setting_full_version), false)) {
+			notificationIntent = new Intent(getApplicationContext(), IconService.class);
+			pendingIntent = PendingIntent.getService(getApplicationContext(), 0, notificationIntent, 0);
+			notification.setLatestEventInfo(getApplicationContext(), getString(R.string.app_name), getString(R.string.start_screenoff_popwindow_hint), pendingIntent);
+		} else {
+//			notificationIntent = new Intent(getApplicationContext(), SettingActivity.class);
+//			pendingIntent = PendingIntent.getActivity(getApplicationContext(), 0, notificationIntent, 0);
+			notification.setLatestEventInfo(getApplicationContext(), getString(R.string.only_full_version), getString(R.string.only_full_version2), null);
+		}
 		notification.flags = Notification.FLAG_NO_CLEAR | Notification.FLAG_ONGOING_EVENT;
 		NotificationManager notificationManager = (NotificationManager) getApplicationContext().getSystemService(Context.NOTIFICATION_SERVICE);
-		notificationManager.notify(NOTIFICATION_ID, notification);
+		notificationManager.notify(Utility.NOTIFICATION_ID, notification);
 	}
 
 	@Override
