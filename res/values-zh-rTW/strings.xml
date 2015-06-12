@@ -13,6 +13,8 @@
     <string name="action_settings">關閉設定</string>
     <string name="start_screenoff_popwindow">開啟浮動按鈕</string>
     <string name="start_screenoff_popwindow_study">浮動按鈕使用說明</string>
+    <string name="start_screenoff_popwindow_study2">單擊浮動按鈕可鎖定螢幕，\n雙擊浮動按鈕可暫時移除浮動按鈕，\n可從上方通知欄重新開啟浮動按鈕。</string>
+    <string name="start_screenoff_popwindow_study3">小米手機用戶請至應用程式設定開啟『顯示浮動資訊』及『自定義通知』</string>
     <string name="start_screenoff_popwindow_hint">點此可直接顯示浮動按扭</string>
     <string name="boot_screenoff_popwindow">開機自動啟動浮動按鈕</string>
     <string name="boot_screenoff_popwindow_hint">捐贈版本將可啟動所有功能</string>
@@ -27,7 +29,7 @@
     <string name="full_version_promote_hint">升級捐贈版本後將可啟動所有功能，\n如開機自動啟動浮動按鈕，\n通知欄直接啟動浮動按鈕等。</string>
     <string name="full_version_buy">升級捐贈版本</string>
     <string name="only_full_version">捐贈版本專用功能</string>
-    <string name="only_full_version2">捐贈版本點此可直接顯示浮動按扭</string>
+    <string name="only_full_version2">捐贈版本將可以不用進入本頁面，直接顯示浮動按扭！</string>
     <string name="option_ok">確定</string>
     <string name="option_cancel">取消</string>
 

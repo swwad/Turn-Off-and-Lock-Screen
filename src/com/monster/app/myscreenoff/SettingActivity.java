@@ -19,6 +19,7 @@ import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
 import android.preference.PreferenceScreen;
 import android.view.KeyEvent;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.android.gms.ads.AdRequest;
@@ -89,13 +90,23 @@ public class SettingActivity extends PreferenceActivity implements OnPreferenceC
 				}
 			});
 		}
+		
+		if (!getIntent().getBooleanExtra(getString(R.string.full_version_buy), true)) {
+			getIntent().removeExtra(getString(R.string.full_version_buy));
+			((NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE)).cancel(Utility.NOTIFICATION_ID);
+			Toast.makeText(this, getString(R.string.only_full_version2), Toast.LENGTH_LONG).show();
+		}
 	}
-
+	
 	@Override
-	protected void onResume() {
-		super.onResume();
-		((NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE)).cancel(Utility.NOTIFICATION_ID);
-	};
+	protected void onNewIntent(Intent intent) {
+		super.onNewIntent(intent);
+		if (!intent.getBooleanExtra(getString(R.string.full_version_buy), true)) {
+			intent.removeExtra(getString(R.string.full_version_buy));
+			((NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE)).cancel(Utility.NOTIFICATION_ID);
+			Toast.makeText(this, getString(R.string.only_full_version2), Toast.LENGTH_LONG).show();
+		}
+	}
 
 	Handler hSetupDefaultData = new Handler() {
 		@Override
@@ -105,7 +116,7 @@ public class SettingActivity extends PreferenceActivity implements OnPreferenceC
 			((CheckBoxPreference) findPreference(getString(R.string.key_setting_return_home))).setOnPreferenceChangeListener(SettingActivity.this);
 			((CheckBoxPreference) findPreference(getString(R.string.key_setting_boot_popwindow))).setOnPreferenceChangeListener(SettingActivity.this);
 			((ListPreference) findPreference(getString(R.string.key_setting_icon_size))).setOnPreferenceChangeListener(SettingActivity.this);
-
+			((Preference) findPreference(getString(R.string.key_setting_popwindow_study))).setOnPreferenceClickListener(SettingActivity.this);
 			Preference pref = findPreference(getString(R.string.key_setting_support_me));
 			if (pref != null) {
 				if (PreferenceManager.getDefaultSharedPreferences(SettingActivity.this).getBoolean(getString(R.string.key_setting_full_version), false)) {
@@ -128,7 +139,7 @@ public class SettingActivity extends PreferenceActivity implements OnPreferenceC
 	public boolean onPreferenceClick(Preference preference) {
 		if (preference.getKey().equalsIgnoreCase(getString(R.string.key_setting_start_popwindow))) {
 			if (!mDPM.isAdminActive(mDeviceAdminSample)) {
-				Utility.ShowCustomizeDialog(this, getString(R.string.app_name), getString(R.string.app_introduction), "OK", null, clickAdminActive, null, null).show();
+				Utility.ShowCustomizeDialog(this, getString(R.string.app_name), getString(R.string.app_introduction), "OK", null, clickAdminActive, null, null, null).show();
 			} else {
 				if (!Utility.isServiceRunning(this, IconService.class)) {
 					startService(new Intent(this, IconService.class));
@@ -136,6 +147,25 @@ public class SettingActivity extends PreferenceActivity implements OnPreferenceC
 			}
 		} else if (preference.getKey().equalsIgnoreCase(getString(R.string.key_setting_support_me))) {
 			buyFullVersion();
+		} else if (preference.getKey().equalsIgnoreCase(getString(R.string.key_setting_popwindow_study))) {
+
+			Utility.ShowCustomizeDialog(this, getString(R.string.start_screenoff_popwindow_study), getString(R.string.start_screenoff_popwindow_study2), getString(R.string.option_ok), null, new OnClickListener() {
+				@Override
+				public void onClick(DialogInterface dialog, int which) {
+					dialog.cancel();
+					ImageView addView = new ImageView(SettingActivity.this);
+					addView.setImageResource(R.drawable.mi_study);
+					Utility.ShowCustomizeDialog(SettingActivity.this, getString(R.string.start_screenoff_popwindow_study), getString(R.string.start_screenoff_popwindow_study3), getString(R.string.option_ok), null, new OnClickListener() {
+						@Override
+						public void onClick(DialogInterface dialog, int which) {
+							dialog.cancel();
+							
+						}
+					}, null, null, addView).show();;
+				}
+			}, null, null, null).show();;
+			
+			
 		}
 		return false;
 	}
@@ -187,7 +217,7 @@ public class SettingActivity extends PreferenceActivity implements OnPreferenceC
 		if (preference.getKey().equalsIgnoreCase(getString(R.string.key_setting_boot_popwindow))) {
 			if (PreferenceManager.getDefaultSharedPreferences(this).getBoolean(getString(R.string.key_setting_full_version), false)) {
 				if (!mDPM.isAdminActive(mDeviceAdminSample)) {
-					Utility.ShowCustomizeDialog(this, getString(R.string.app_name), getString(R.string.app_introduction), "OK", null, clickAdminActive, null, null).show();
+					Utility.ShowCustomizeDialog(this, getString(R.string.app_name), getString(R.string.app_introduction), "OK", null, clickAdminActive, null, null, null).show();
 				} else {
 					return true;
 				}
@@ -204,7 +234,7 @@ public class SettingActivity extends PreferenceActivity implements OnPreferenceC
 							public void onClick(DialogInterface dialog, int which) {
 								dialog.cancel();
 							}
-						}, null).show();
+						}, null, null).show();
 			}
 		} else if (preference.getKey().equalsIgnoreCase(getString(R.string.key_setting_return_home))) {
 			return true;

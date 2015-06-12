@@ -6,6 +6,8 @@ import android.app.ActivityManager.RunningServiceInfo;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.view.View;
+import android.view.ViewGroup.LayoutParams;
 import android.widget.Toast;
 
 public class Utility {
@@ -14,7 +16,7 @@ public class Utility {
 	public static final int NOTIFICATION_ID = 7210;
 
 	public static AlertDialog ShowCustomizeDialog(Context ctx, String title, String message, String positiveMessage, String negativeMessage, DialogInterface.OnClickListener onPositiveListener,
-			DialogInterface.OnClickListener onNegativeListener, DialogInterface.OnCancelListener onCancelListener) {
+			DialogInterface.OnClickListener onNegativeListener, DialogInterface.OnCancelListener onCancelListener, View addView) {
 		AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(ctx);
 
 		if (title != null) {
@@ -23,6 +25,10 @@ public class Utility {
 
 		if (message != null) {
 			dialogBuilder.setMessage(message);
+		}
+		
+		if (addView != null) {
+			dialogBuilder.setView(addView);
 		}
 
 		if (onCancelListener != null) {
@@ -55,7 +61,7 @@ public class Utility {
 	public static float convertDpToPixel(float dp, Context context) {
 		return dp * context.getResources().getDisplayMetrics().density;
 	}
-	
+
 	public static void ToastUiThread(final Activity mActivity, final String strMessage, final int duration) {
 		mActivity.runOnUiThread(new Runnable() {
 			public void run() {

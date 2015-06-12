@@ -50,7 +50,7 @@ public class MainActivity extends Activity {
 					intent.putExtra(DevicePolicyManager.EXTRA_ADD_EXPLANATION, getString(R.string.device_admin_description));
 					startActivityForResult(intent, Utility.RESULT_ENABLE);
 				}
-			}, null, null).show();
+			}, null, null, null).show();
 		} else {
 			lockScreenNow();
 		}

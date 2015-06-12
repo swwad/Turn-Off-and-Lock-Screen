@@ -142,7 +142,6 @@ public class IconService extends Service {
 	}
 
 	public void createNotification() {
-
 		Intent notificationIntent;
 		PendingIntent pendingIntent;
 		Notification notification = new Notification(R.drawable.ic_launcher, getString(R.string.start_screenoff_popwindow_hint), System.currentTimeMillis());
@@ -151,9 +150,10 @@ public class IconService extends Service {
 			pendingIntent = PendingIntent.getService(getApplicationContext(), 0, notificationIntent, 0);
 			notification.setLatestEventInfo(getApplicationContext(), getString(R.string.app_name), getString(R.string.start_screenoff_popwindow_hint), pendingIntent);
 		} else {
-//			notificationIntent = new Intent(getApplicationContext(), SettingActivity.class);
-//			pendingIntent = PendingIntent.getActivity(getApplicationContext(), 0, notificationIntent, 0);
-			notification.setLatestEventInfo(getApplicationContext(), getString(R.string.only_full_version), getString(R.string.only_full_version2), null);
+			notificationIntent = new Intent(getApplicationContext(), SettingActivity.class);
+			notificationIntent.putExtra(getString(R.string.full_version_buy), false);
+			pendingIntent = PendingIntent.getActivity(getApplicationContext(), 0, notificationIntent, 0);
+			notification.setLatestEventInfo(getApplicationContext(), getString(R.string.app_name), getString(R.string.only_full_version), pendingIntent);
 		}
 		notification.flags = Notification.FLAG_NO_CLEAR | Notification.FLAG_ONGOING_EVENT;
 		NotificationManager notificationManager = (NotificationManager) getApplicationContext().getSystemService(Context.NOTIFICATION_SERVICE);
