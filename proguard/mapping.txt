@@ -8232,7 +8232,7 @@ com.monster.app.myscreenoff.SettingActivity -> com.monster.app.myscreenoff.Setti
     android.content.DialogInterface$OnClickListener clickAdminActive -> e
     android.os.Handler hSetupDefaultData -> c
     void onCreate(android.os.Bundle) -> onCreate
-    void onResume() -> onResume
+    void onNewIntent(android.content.Intent) -> onNewIntent
     void releaseIabHelper() -> b
     boolean onPreferenceClick(android.preference.Preference) -> onPreferenceClick
     void buyFullVersion() -> a
@@ -8255,14 +8255,19 @@ com.monster.app.myscreenoff.SettingActivity$3$1 -> com.monster.app.myscreenoff.g
     void onQueryInventoryFinished(com.monster.app.util.IabResult,com.monster.app.util.Inventory) -> a
 com.monster.app.myscreenoff.SettingActivity$4 -> com.monster.app.myscreenoff.h:
     com.monster.app.myscreenoff.SettingActivity this$0 -> a
-    void onIabSetupFinished(com.monster.app.util.IabResult) -> a
+    void onClick(android.content.DialogInterface,int) -> onClick
 com.monster.app.myscreenoff.SettingActivity$4$1 -> com.monster.app.myscreenoff.i:
-    com.monster.app.myscreenoff.SettingActivity$4 this$1 -> a
-    void onIabPurchaseFinished(com.monster.app.util.IabResult,com.monster.app.util.Purchase) -> a
+    void onClick(android.content.DialogInterface,int) -> onClick
 com.monster.app.myscreenoff.SettingActivity$5 -> com.monster.app.myscreenoff.j:
     com.monster.app.myscreenoff.SettingActivity this$0 -> a
+    void onIabSetupFinished(com.monster.app.util.IabResult) -> a
+com.monster.app.myscreenoff.SettingActivity$5$1 -> com.monster.app.myscreenoff.k:
+    com.monster.app.myscreenoff.SettingActivity$5 this$1 -> a
+    void onIabPurchaseFinished(com.monster.app.util.IabResult,com.monster.app.util.Purchase) -> a
+com.monster.app.myscreenoff.SettingActivity$6 -> com.monster.app.myscreenoff.l:
+    com.monster.app.myscreenoff.SettingActivity this$0 -> a
     void onClick(android.content.DialogInterface,int) -> onClick
-com.monster.app.myscreenoff.SettingActivity$6 -> com.monster.app.myscreenoff.k:
+com.monster.app.myscreenoff.SettingActivity$7 -> com.monster.app.myscreenoff.m:
     void onClick(android.content.DialogInterface,int) -> onClick
 com.monster.app.util.Base64 -> com.monster.app.a.a:
     byte[] DECODABET -> a
@@ -8303,7 +8308,7 @@ com.monster.app.util.IabHelper -> com.monster.app.a.d:
     int querySkuDetails(java.lang.String,com.monster.app.util.Inventory,java.util.List) -> a
     void logError(java.lang.String) -> c
     void logWarn(java.lang.String) -> d
-    android.app.AlertDialog ShowCustomizeDialog(android.content.Context,java.lang.String,java.lang.String,java.lang.String,java.lang.String,android.content.DialogInterface$OnClickListener,android.content.DialogInterface$OnClickListener,android.content.DialogInterface$OnCancelListener) -> a
+    android.app.AlertDialog ShowCustomizeDialog(android.content.Context,java.lang.String,java.lang.String,java.lang.String,java.lang.String,android.content.DialogInterface$OnClickListener,android.content.DialogInterface$OnClickListener,android.content.DialogInterface$OnCancelListener,android.view.View) -> a
     boolean isServiceRunning(android.content.Context,java.lang.Class) -> a
     void ToastUiThread(android.app.Activity,java.lang.String,int) -> a
 com.monster.app.util.IabHelper$1 -> com.monster.app.a.e:
