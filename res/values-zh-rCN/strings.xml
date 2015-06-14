@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- APP -->
+    <string name="app_name">关闭屏幕</string>
+    <string name="app_introduction">请先开启锁定屏幕的权限，才可正常使用此 APP，如果需要卸载 APP，请先至【设定】→【安全性】→【设备管理器】内取消本 APP 的权限，再移除此 APP 即可。</string>
+    <string name="device_admin_title">关闭并锁定屏幕</string>
+    <string name="device_admin_description">此 APP 唯一的功能便是关闭并锁定屏幕，适合不想按硬件电源键的人使用；如果需要卸载 APP，请先至【设定】→【安全性】→【设备管理器】内取消本 APP 的权限，再移除此 APP 即可。</string>
+    <string name="device_admin_remove_msg">已移除本 APP 设备管理器权限，已可正常卸载本 APP。</string>
+	<string name="banner_ad_unit_id">ca-app-pub-2487183748401331/5340398205</string>
+	
+    <!-- Setting -->
+    <string name="action_settings">关闭设定</string>
+    <string name="start_screenoff_popwindow">开启浮动按钮</string>
+    <string name="start_screenoff_popwindow_study">浮动按钮使用说明</string>
+    <string name="start_screenoff_popwindow_study2">单击浮动按钮可锁定屏幕，\n\n双击浮动按钮可暂时移除浮动按钮，\n\n可从上方通知栏重新开启浮动按钮。</string>
+    <string name="start_screenoff_popwindow_study3">小米手机用户请至应用程序设定开启『显示浮动信息』及『自定义通知』</string>
+    <string name="start_screenoff_popwindow_hint">点此可直接显示浮动按扭</string>
+    <string name="boot_screenoff_popwindow">开机自动启动浮动按钮</string>
+    <string name="boot_screenoff_popwindow_hint">捐赠版本将可启动所有功能</string>
+    <string name="screenoff_popwindow_size">浮动按钮尺寸</string>
+    <string name="screenoff_return_to_home">锁定屏幕后，返回桌面</string>
+    <string name="screenoff_return_to_home_hint">开启后，将在下次显示屏幕时显示主桌面</string>
+    <string name="support_me">支持本程序</string>
+    <string name="support_me_hint">您的支持可以帮助小弟开发更多新程序，\n支持本程序后，将可启动所有功能。\n若您已支持过，也请点此直接升级为捐赠版本!</string>
+    <string name="iabhelper_failed">查询购买信息失败，请稍后再试!</string>
+    <string name="iabhelper_fullversion">感谢您的支持，将启用所有功能。</string>
+    <string name="full_version_promote_title">请升级捐赠版本</string>
+    <string name="full_version_promote_hint">升级捐赠版本后将可启动所有功能，\n如开机自动启动浮动按钮，\n通知栏直接启动浮动按钮等。</string>
+    <string name="full_version_buy">升级捐赠版本</string>
+    <string name="only_full_version">捐赠版本专用功能</string>
+    <string name="only_full_version2">捐赠版本将可以不用进入本页面，直接显示浮动按钮！</string>
+    <string name="option_ok">确定</string>
+    <string name="option_cancel">取消</string>
+
+    <string-array name="option_icon_size_string">
+        <item>小</item>
+        <item>中</item>
+        <item>大</item>
+    </string-array>
+
+</resources>
