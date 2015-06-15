@@ -79,6 +79,7 @@ public class IconService extends Service {
 		windowManager = (WindowManager) getSystemService(WINDOW_SERVICE);
 
 		chatHead = new ImageView(this);
+		chatHead.setAlpha(80);
 		chatHead.setImageResource(R.drawable.ic_launcher);
 
 		int popwindow_size = (int) Utility.convertDpToPixel(Integer.valueOf(PreferenceManager.getDefaultSharedPreferences(this).getString(getString(R.string.key_setting_icon_size), "50")), this);
