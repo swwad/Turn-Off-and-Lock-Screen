@@ -8239,7 +8239,6 @@ com.monster.app.myscreenoff.SettingActivity -> com.monster.app.myscreenoff.Setti
     void onActivityResult(int,int,android.content.Intent) -> onActivityResult
     void onDestroy() -> onDestroy
     boolean onPreferenceChange(android.preference.Preference,java.lang.Object) -> onPreferenceChange
-    boolean onKeyDown(int,android.view.KeyEvent) -> onKeyDown
     void access$0(com.monster.app.myscreenoff.SettingActivity) -> a
 com.monster.app.myscreenoff.SettingActivity$1 -> com.monster.app.myscreenoff.d:
     com.monster.app.myscreenoff.SettingActivity this$0 -> a

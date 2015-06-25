@@ -248,16 +248,16 @@ public class SettingActivity extends PreferenceActivity implements OnPreferenceC
 		return false;
 	}
 
-	@Override
-	public boolean onKeyDown(int keyCode, KeyEvent event) {
-		if (keyCode == KeyEvent.KEYCODE_VOLUME_DOWN) {
-			PreferenceManager.getDefaultSharedPreferences(SettingActivity.this).edit().putBoolean(getString(R.string.key_setting_full_version), false).commit();
-			return true;
-		} else if (keyCode == KeyEvent.KEYCODE_VOLUME_UP) {
-			PreferenceManager.getDefaultSharedPreferences(SettingActivity.this).edit().putBoolean(getString(R.string.key_setting_full_version), true).commit();
-			return true;
-		}
-		return super.onKeyDown(keyCode, event);
-	}
+//	@Override
+//	public boolean onKeyDown(int keyCode, KeyEvent event) {
+//		if (keyCode == KeyEvent.KEYCODE_VOLUME_DOWN) {
+//			PreferenceManager.getDefaultSharedPreferences(SettingActivity.this).edit().putBoolean(getString(R.string.key_setting_full_version), false).commit();
+//			return true;
+//		} else if (keyCode == KeyEvent.KEYCODE_VOLUME_UP) {
+//			PreferenceManager.getDefaultSharedPreferences(SettingActivity.this).edit().putBoolean(getString(R.string.key_setting_full_version), true).commit();
+//			return true;
+//		}
+//		return super.onKeyDown(keyCode, event);
+//	}
 
 }
